@@ -24,6 +24,15 @@ function __CleanClassEllipse(_x, _y, _radiusX, _radiusY) constructor
     __borderColour    = CLEAN_DEFAULT_CIRCLE_BORDER_COLOUR;
     __borderAlpha     = CLEAN_DEFAULT_CIRCLE_BORDER_ALPHA;
     
+    static At = function(_x, _y, _radiusX, _radiusY=_radiusX)
+    {
+        __x       = _x;
+        __y       = _y;
+        __radiusX = _radiusX;
+        __radiusY = _radiusY;
+        return self;
+    }
+    
     /// @param color
     /// @param alpha
     static Blend = function(_colour, _alpha)

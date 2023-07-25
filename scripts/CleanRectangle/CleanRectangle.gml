@@ -37,6 +37,26 @@ function __CleanClassRectangle(_left, _top, _right, _bottom) constructor
     __rounding = CLEAN_DEFAULT_RECTANGLE_ROUNDING;
     __rotation = 0;
     
+    static At = function(_left, _top, _right, _bottom)
+    {
+        __left   = _left;
+        __top    = _top;
+        __right  = _right;
+        __bottom = _bottom;
+        return self;
+    }
+    
+    static AtCenter = function(_center_x, _center_y, _width, _height)
+    {
+        var half_width = _width/2;
+        var half_height = _height/2;
+        __left   = _center_x-half_width;
+        __top    = _center_y-half_height;
+        __right  = _center_x+half_width;
+        __bottom = _center_y+half_height;
+        return self;
+    }
+    
     /// @param color
     /// @param alpha
     static Blend = function(_colour, _alpha)

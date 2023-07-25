@@ -9,7 +9,8 @@ function CleanBatchEndReturnVertexBuffer()
     }
     
     //Don't bother doing anything if our batch is empty
-    if (array_length(_batchArray) <= 0)
+	var _batchArrayLen = array_length(_batchArray);
+    if (_batchArrayLen <= 0)
     {
         global.__cleanBatch = undefined;
         return undefined;
@@ -19,7 +20,7 @@ function CleanBatchEndReturnVertexBuffer()
     vertex_begin(_vbuff, global.__cleanVertexFormat);
     
     var _i = 0;
-    repeat(array_length(_batchArray))
+    repeat(_batchArrayLen)
     {
         _batchArray[_i].__Build(_vbuff);
         ++_i;

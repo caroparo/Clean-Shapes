@@ -26,6 +26,16 @@ function __CleanClassNgon(_x, _y, _radius, _sides) constructor
     __starFactor = CLEAN_DEFAULT_NGON_STAR_FACTOR;
     __rotation   = 0;
     
+    static At = function(_x, _y, _radius, _sides)
+    {
+        __x      = _x;
+        __y      = _y;
+        __radius = _radius;
+        __sides  = _sides;
+        
+        return self;
+    }
+    
     /// @param color
     /// @param alpha
     static Blend = function(_colour, _alpha)

@@ -4,9 +4,6 @@
 #macro __CLEAN_FLAG_B   131072 // 2^17
 #macro __CLEAN_FLAG_AB  196608 // 2^16 + 2^17
 
-__CleanTrace("Welcome to Clean Shapes by @jujuadams, Alice Pedersen (@bakumoe), and @XorDev! This is version ", __CLEAN_VERSION, ", ", __CLEAN_DATE);
-__CleanTrace("Made using a ton of shader code borrowed from Inigo Quilez");
-
 global.__cleanBatch     = undefined;
 global.__cleanAntialias = CLEAN_DEFAULT_ANTIALIAS;
 
@@ -27,22 +24,6 @@ vertex_format_add_texcoord();
 global.__cleanVertexFormat = vertex_format_end();
 
 /// @param [value...]
-function __CleanTrace()
-{
-    var _string = "";
-    var _i = 0;
-    repeat(argument_count)
-    {
-        _string += string(argument[_i]);
-        ++_i;
-    }
-
-    show_debug_message("Clean Shapes: " + _string);
-
-    return _string;
-}
-
-/// @param [value...]
 function __CleanError()
 {
     var _string = "";
@@ -54,7 +35,7 @@ function __CleanError()
         ++_i;
     }
     
-    show_error("Clean Shapes:\n" + _string + "\n ", false);
+    show_debug_message("Clean Shapes: " + _string);
     
     return _string;
 }
