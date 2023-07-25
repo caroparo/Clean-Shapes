@@ -1,9 +1,17 @@
-#macro __CLEAN_VERSION  "1.0.12"
-#macro __CLEAN_DATE     "2021-05-03"
+#macro __CLEAN_VERSION  "1.1.1"
+#macro __CLEAN_DATE     "2023-05-03"
 #macro __CLEAN_FLAG_A   65536  // 2^16
 #macro __CLEAN_FLAG_B   131072 // 2^17
 #macro __CLEAN_FLAG_AB  196608 // 2^16 + 2^17
 
+//__CleanTrace("Welcome to Clean Shapes by @jujuadams, Alice Pedersen (@bakumoe), and @XorDev! This is version ", __CLEAN_VERSION, ", ", __CLEAN_DATE);
+//__CleanTrace("Made using a ton of shader code borrowed from Inigo Quilez");
+/*
+if (os_browser != browser_not_a_browser)
+{
+    __CleanError("Clean Shapes is incompatible with the HTML5 export target");
+}
+*/
 global.__cleanBatch     = undefined;
 global.__cleanAntialias = CLEAN_DEFAULT_ANTIALIAS;
 
@@ -24,6 +32,23 @@ vertex_format_add_texcoord();
 global.__cleanVertexFormat = vertex_format_end();
 
 /// @param [value...]
+/*
+function __CleanTrace()
+{
+    var _string = "";
+    var _i = 0;
+    repeat(argument_count)
+    {
+        _string += string(argument[_i]);
+        ++_i;
+    }
+
+    show_debug_message("Clean Shapes " + string(__CLEAN_VERSION) + ": " + _string);
+
+    return _string;
+}
+*/
+/// @param [value...]
 function __CleanError()
 {
     var _string = "";
@@ -35,7 +60,7 @@ function __CleanError()
         ++_i;
     }
     
-    show_debug_message("Clean Shapes: " + _string);
+    show_error("Clean Shapes " + string(__CLEAN_VERSION) + ":\n" + _string + "\n ", false);
     
     return _string;
 }
